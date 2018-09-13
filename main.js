@@ -1,6 +1,5 @@
 var $img = document.createElement('img')
 $img.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7mTzM_WiZY_Yu7pkO3Xfsm0xzVK7W-jhxrOWp6JwT10qjStdH')
-$img.setAttribute('class', 'west')
 document.body.appendChild($img)
 
 class Car {
@@ -14,6 +13,26 @@ class Car {
     this.direction = direction
     this.$img.classList.remove('north', 'south', 'west', 'east')
     this.$img.classList.add(direction)
+  }
+  move () {
+    switch (this.direction) {
+      case 'north':
+        this.location[1] += this.speed
+        break
+      case 'south':
+        this.location[1] -= this.speed
+        break
+      case 'east':
+        this.location[0] += this.speed
+        break
+      case 'west':
+        this.location[0] -= this.speed
+    }
+    this.$img.style.top = this.location[1] * -1 + 'px'
+    this.$img.style.left = this.location[0] + 'px'
+  }
+  start () {
+    setInterval(this.move.bind(this), 16)
   }
 }
 
@@ -30,6 +49,12 @@ document.addEventListener('keydown', function (event) {
       break
     case 'ArrowLeft':
       car.turn('west')
+  }
+})
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === ' ') {
+    car.start()
   }
 })
 
