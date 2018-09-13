@@ -31,6 +31,9 @@ class Car {
     this.$img.style.top = this.location[1]
     this.$img.style.left = this.location[0]
   }
+  start () {
+    setInterval(this.move, 16)
+  }
 }
 
 document.addEventListener('keydown', function (event) {
