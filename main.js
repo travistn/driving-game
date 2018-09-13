@@ -34,6 +34,9 @@ class Car {
   start () {
     setInterval(this.move.bind(this), 16)
   }
+  stop () {
+    clearInterval(this.start)
+  }
 }
 
 document.addEventListener('keydown', function (event) {
