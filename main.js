@@ -9,6 +9,10 @@ class Car {
     this.direction = direction
     this.location = location
   }
+  turn(direction) {
+    this.direction = direction
+    this.$img.classList.add(direction)
+  }
 }
 
 var car = new Car($img, 5, 'west', [0, 0])
