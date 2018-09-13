@@ -28,11 +28,11 @@ class Car {
       case 'west':
         this.location[0] -= this.speed
     }
-    this.$img.style.top = this.location[1]
-    this.$img.style.left = this.location[0]
+    this.$img.style.top = this.location[1] * -1 + 'px'
+    this.$img.style.left = this.location[0] + 'px'
   }
   start () {
-    setInterval(this.move, 16)
+    setInterval(this.move.bind(this), 16)
   }
 }
 
@@ -49,6 +49,12 @@ document.addEventListener('keydown', function (event) {
       break
     case 'ArrowLeft':
       car.turn('west')
+  }
+})
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === ' ') {
+    car.start()
   }
 })
 
