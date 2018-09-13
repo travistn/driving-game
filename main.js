@@ -1,5 +1,6 @@
 var $img = document.createElement('img')
 $img.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7mTzM_WiZY_Yu7pkO3Xfsm0xzVK7W-jhxrOWp6JwT10qjStdH')
+$img.setAttribute('class', 'west')
 document.body.appendChild($img)
 
 class Car {
@@ -11,8 +12,8 @@ class Car {
   }
   turn(direction) {
     this.direction = direction
+    this.$img.classList.remove('north', 'south', 'west', 'east')
     this.$img.classList.add(direction)
-    this.$img.classList.remove(direction)
   }
 }
 

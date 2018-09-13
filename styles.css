@@ -1,3 +1,15 @@
-img {
+.north {
   transform: rotate(90deg)
+}
+
+.south {
+  transform: rotate(270deg)
+}
+
+.east {
+  transform: rotate(180deg)
+}
+
+.west {
+  transform: rotate(0deg)
 }
