@@ -1,6 +1,5 @@
 var $img = document.createElement('img')
 $img.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7mTzM_WiZY_Yu7pkO3Xfsm0xzVK7W-jhxrOWp6JwT10qjStdH')
-$img.setAttribute('class', 'west')
 document.body.appendChild($img)
 
 class Car {
@@ -29,6 +28,8 @@ class Car {
       case 'west':
         this.location[0] -= this.speed
     }
+    this.$img.style.top = this.location[1]
+    this.$img.style.left = this.location[0]
   }
 }
 
