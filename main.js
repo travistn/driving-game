@@ -32,10 +32,10 @@ class Car {
     this.$img.style.left = this.location[0] + 'px'
   }
   start () {
-    setInterval(this.move.bind(this), 16)
+    var start = setInterval(this.move.bind(this), 16)
   }
   stop () {
-    clearInterval(this.start)
+    clearInterval(start)
   }
 }
 
@@ -58,6 +58,9 @@ document.addEventListener('keydown', function (event) {
 document.addEventListener('keydown', function (event) {
   if (event.key === ' ') {
     car.start()
+  }
+  if (event.key === ' ') {
+    car.stop()
   }
 })
 
